@@ -1,0 +1,182 @@
+/* Smart Queue Management for College Canteens - Custom Stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #f97316;       /* Warm vibrant orange */
+  --primary-dark: #ea580c;  /* Deep saffron orange */
+  --primary-light: #ffedd5; /* Soft peach/cream */
+  --accent: #f59e0b;        /* Warm amber yellow */
+  --accent-light: #fef3c7;  /* Light golden tint */
+  --surface: #ffffff;
+  --bg-app: #fcfbf9;        /* Warm campus cream */
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --border-subtle: #f1f5f9;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Warm Gradient Hero & Cards */
+.bg-warm-gradient {
+  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fef3c7 100%);
+}
+
+.bg-orange-gradient {
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 50%, #fb923c 100%);
+}
+
+.bg-dark-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* Glassmorphism Navigation */
+.glass-header {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* Stepper Animation */
+.step-dot.active {
+  animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+  }
+}
+
+/* Ready for pickup pulsating banner */
+.ready-pulse {
+  animation: ready-glow 2s infinite alternate;
+}
+
+@keyframes ready-glow {
+  0% {
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3), 0 0 30px rgba(16, 185, 129, 0.1);
+    border-color: #34d399;
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.6), 0 0 50px rgba(16, 185, 129, 0.25);
+    border-color: #059669;
+  }
+}
+
+/* Veg / Non-Veg Icon Markers */
+.veg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #16a34a;
+  border-radius: 4px;
+  background: #ffffff;
+}
+.veg-badge::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #16a34a;
+}
+
+.non-veg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #dc2626;
+  border-radius: 4px;
+  background: #ffffff;
+}
+.non-veg-badge::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 9px solid #dc2626;
+}
+
+/* Toast Notification slide-in */
+.toast-slide-in {
+  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateY(-20px) scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Token Box Styles */
+.token-chip {
+  background: radial-gradient(circle at 30% 30%, #fff7ed, #fed7aa);
+  border: 2px dashed #f97316;
+}
+
+/* Subtle Card Hover Effects */
+.food-card {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.food-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px -10px rgba(249, 115, 22, 0.15), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Print Styles for Token Receipt */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    background: white;
+  }
+}
